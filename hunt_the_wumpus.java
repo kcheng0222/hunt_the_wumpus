@@ -79,6 +79,8 @@ public class WumpusGame{
         gameMap[batX][batY] = "B";
         printMap(gameMap);
         
+        System.out.println("Welcome to wumpus game! Use wasd to move, and 't' to shoot.");
+        
         while(true){
             System.out.println("Enter wasd:");
             
