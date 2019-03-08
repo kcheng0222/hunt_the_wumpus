@@ -128,6 +128,18 @@ public class WumpusGame{
                     }
                 }
                 System.out.println("You missed. Very bad.");
+                if(wumpusX == gameMap.length){
+                    wumpusX = 0;
+                }
+                if(wumpusX == -1){
+                    wumpusX = gameMap.length-1;
+                }
+                if(wumpusY == gameMap[0].length){
+                    wumpusY = 0;
+                }
+                if(wumpusY == -1){
+                    wumpusY = gameMap[0].length-1;
+                }
                 gameMap[wumpusX][wumpusY] = "#";
             }
             else{
@@ -187,42 +199,15 @@ public class WumpusGame{
             }else{
                 //tells player if they are next to a pit(breeze), wumpus(sniff), or bat(flap)
                 printMap(gameMap);
-                if((playerX + 1 == wumpusX) && (playerY == wumpusY)){
-                    System.out.println("SNIFF");
-                }
-                else if((playerX - 1 == wumpusX) && (playerY == wumpusY)){
-                    System.out.println("SNIFF");
-                }
-                else if((playerY + 1 == wumpusY) && (playerX == wumpusX)){
-                    System.out.println("SNIFF");
-                }
-                else if((playerY - 1 == wumpusY) && (playerX == wumpusX)){
+                if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                     System.out.println("SNIFF");
                 }
                 
-                if((playerX + 1 == pitX) && (playerY == pitY)){
-                    System.out.println("BREEZE");
-                }
-                else if((playerX - 1 == pitX) && (playerY == pitY)){
-                    System.out.println("BREEZE");
-                }
-                else if((playerY + 1 == pitY) && (playerX == pitX)){
-                    System.out.println("BREEZE");
-                }
-                else if((playerY - 1 == pitY) && (playerX == pitX)){
+                if(nextTo(playerX, playerY, pitX, pitY)){
                     System.out.println("BREEZE");
                 }
                 
-                if((playerX + 1 == batX) && (playerY == batY)){
-                    System.out.println("FLAP");
-                }
-                else if((playerX - 1 == batX) && (playerY == batY)){
-                    System.out.println("FLAP");
-                }
-                else if((playerY + 1 == batY) && (playerX == batX)){
-                    System.out.println("FLAP");
-                }
-                else if((playerY - 1 == batY) && (playerX == batX)){
+                if(nextTo(playerX, playerY, batX, batY)){
                     System.out.println("FLAP");
                 }
                 
