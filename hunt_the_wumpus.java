@@ -61,17 +61,17 @@ public class WumpusGame{
         int playerX = 0;
         int playerY = 0;
         
-        int wumpusX = gen.nextInt(gameMap.length-1)+1;
-        int wumpusY = gen.nextInt(gameMap[0].length-1)+1;
+        int wumpusX = gen.nextInt(gameMap.length - 1) + 1;
+        int wumpusY = gen.nextInt(gameMap[0].length - 1) + 1;
         
         //wumpusX = 0;
         //wumpusY = 1;
         
-        int pitX = gen.nextInt(gameMap.length-1)+1;
-        int pitY = gen.nextInt(gameMap[0].length-1)+1;
+        int pitX = gen.nextInt(gameMap.length - 1) + 1;
+        int pitY = gen.nextInt(gameMap[0].length - 1) + 1;
         
-        int batX = gen.nextInt(gameMap.length-1)+1;
-        int batY = gen.nextInt(gameMap[0].length-1)+1;
+        int batX = gen.nextInt(gameMap.length - 1) + 1;
+        int batY = gen.nextInt(gameMap[0].length - 1) + 1;
         
         gameMap[playerX][playerY] = "@";
         gameMap[wumpusX][wumpusY] = "#";
@@ -97,7 +97,6 @@ public class WumpusGame{
                     else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
                         r = gen.nextInt(4)+1;
-                        
                         
                         if(r == 1){wumpusX ++;}
                         else if(r == 2){wumpusX --;}
