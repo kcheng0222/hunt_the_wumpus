@@ -55,23 +55,23 @@ public class WumpusGame{
         
         Scanner sc = new Scanner(System.in);
         Random gen = new Random();
-        String gameMap[][] = new String[15][15];      
+        String gameMap[][] = new String[9][9]; //change this if you want to change gameMap size
         int[] tempArr = new int[2];
         gameMap = fillMap(gameMap);
         int playerX = 0;
         int playerY = 0;
         
-        int wumpusX = gen.nextInt(gameMap.length - 1) + 1;
-        int wumpusY = gen.nextInt(gameMap[0].length - 1) + 1;
+        int wumpusX = gen.nextInt(gameMap.length-1) + 1;
+        int wumpusY = gen.nextInt(gameMap[0].length-1) + 1;
         
         //wumpusX = 0;
         //wumpusY = 1;
         
-        int pitX = gen.nextInt(gameMap.length - 1) + 1;
-        int pitY = gen.nextInt(gameMap[0].length - 1) + 1;
+        int pitX = gen.nextInt(gameMap.length-1) + 1;
+        int pitY = gen.nextInt(gameMap[0].length-1) + 1;
         
-        int batX = gen.nextInt(gameMap.length - 1) + 1;
-        int batY = gen.nextInt(gameMap[0].length - 1) + 1;
+        int batX = gen.nextInt(gameMap.length-1) + 1;
+        int batY = gen.nextInt(gameMap[0].length-1) + 1;
         
         gameMap[playerX][playerY] = "@";
         gameMap[wumpusX][wumpusY] = "#";
@@ -111,7 +111,7 @@ public class WumpusGame{
                         break;
                     }else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
-                        r = gen.nextInt(4)+1;
+                        r = gen.nextInt(4) + 1;
                         if(r == 1){wumpusX ++;}
                         else if(r == 2){wumpusX --;}
                         else if(r == 3){wumpusY --;}
@@ -125,7 +125,7 @@ public class WumpusGame{
                         break;
                     }else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
-                        r = gen.nextInt(4)+1;
+                        r = gen.nextInt(4) + 1;
                         if(r == 1){wumpusX ++;}
                         else if(r == 2){wumpusX --;}
                         else if(r == 3){wumpusY --;}
@@ -139,7 +139,7 @@ public class WumpusGame{
                         break;
                     }else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
-                        r = gen.nextInt(4)+1;
+                        r = gen.nextInt(4) + 1;
                         if(r == 1){wumpusX ++;}
                         else if(r == 2){wumpusX --;}
                         else if(r == 3){wumpusY --;}
@@ -192,6 +192,14 @@ public class WumpusGame{
                 playerY = gen.nextInt(gameMap[0].length-1)+1;
                 gameMap[playerX][playerY] = "@";
                 printMap(gameMap);
+                if(playerX == wumpusX && playerY == wumpusY){
+                    System.out.println("The bats dropped you onto the wumpus. oOOOOF.");
+                }
+                
+                if(playerX == pitX && playerY == pitY){
+                    System.out.println("The bats dropped you into the pit. Get dropped.");
+                }
+                
             }else if(playerX == wumpusX && playerY == wumpusY){
                 // player gets killed if they run into a wumpus(#)
                 gameMap[playerX][playerY] = "#";
