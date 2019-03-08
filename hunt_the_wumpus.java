@@ -106,7 +106,7 @@ public class WumpusGame{
                         
                     }
                 }
-                if(shootDir.equals("s")){
+                else if(shootDir.equals("s")){
                     if(playerX + 1 == wumpusX && playerY == wumpusY){
                         System.out.println("You shoot the wumpus! Good game.");
                         break;
@@ -120,7 +120,7 @@ public class WumpusGame{
                         
                     }
                 }
-                if(shootDir.equals("a")){
+                else if(shootDir.equals("a")){
                     if(playerY - 1 == wumpusY && playerX == wumpusX){
                         System.out.println("You shoot the wumpus! Good game.");
                         break;
@@ -134,7 +134,7 @@ public class WumpusGame{
                         
                     }
                 }
-                if(shootDir.equals("d")){
+                else if(shootDir.equals("d")){
                     if(playerY + 1 == wumpusY && playerX == wumpusX){
                         System.out.println("You shoot the wumpus! Good game.");
                         break;
@@ -163,13 +163,13 @@ public class WumpusGame{
                 if(in.equals("w")){
                     playerX -= 1;
                 }
-                if(in.equals("s")){
+                else if(in.equals("s")){
                     playerX += 1;
                 }
-                if(in.equals("a")){
+                else if(in.equals("a")){
                     playerY -= 1;
                 }
-                if(in.equals("d")){
+                else if(in.equals("d")){
                     playerY += 1;
                 }
                 // player wrap
@@ -208,6 +208,7 @@ public class WumpusGame{
             }else{
                 //tells player if they are next to a pit(breeze), wumpus(sniff), or bat(flap)
                 printMap(gameMap);
+                
                 if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                     System.out.println("SNIFF");
                 }
