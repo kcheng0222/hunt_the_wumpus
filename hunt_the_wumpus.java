@@ -34,7 +34,6 @@ public class WumpusGame{
     } 
     public static int[] wrap(int x, int y, String[][] gameMap){
         
-        
         if(x == gameMap.length){
             x = 0;
         }
@@ -51,6 +50,7 @@ public class WumpusGame{
         int[] xyCoor = new int[]{x,y};
         return xyCoor;
     }
+    
     public static void main(String [] args){
         
         Scanner sc = new Scanner(System.in);
@@ -84,7 +84,6 @@ public class WumpusGame{
             String in = sc.next().substring(0,1);
             
             //shoot time
-            
             if(in.equals("t")){
                 //shoot!
                 System.out.println("What direction would you like to throw? Enter wasd:");
@@ -220,12 +219,7 @@ public class WumpusGame{
                 if(nextTo(playerX, playerY, batX, batY)){
                     System.out.println("FLAP");
                 }
-                
             }
-            
-            
-            
         }
-        
     }
 }
