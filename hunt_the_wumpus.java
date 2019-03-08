@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class WumpusGame{
-    
+    //Made by Kyle Cheng and Jay Nathan 3/8/2019
     public static void printMap(String[][] arr){
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j < arr[0].length; j++){
