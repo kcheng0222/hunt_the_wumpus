@@ -32,18 +32,40 @@ public class WumpusGame{
         }
         return false;
     } 
+    public static int[] wrap(int x, int y, String[][] gameMap){
+        
+        
+        if(x == gameMap.length){
+            x = 0;
+        }
+        if(x == -1){
+            x = gameMap.length-1;
+        }
+        if(y == gameMap[0].length){
+            y = 0;
+        }
+        if(y == -1){
+            y = gameMap[0].length-1;
+        }
+        
+        int[] xyCoor = new int[]{x,y};
+        return xyCoor;
+    }
     public static void main(String [] args){
         
         Scanner sc = new Scanner(System.in);
         Random gen = new Random();
         String gameMap[][] = new String[15][15];      
-        
+        int[] tempArr = new int[2];
         gameMap = fillMap(gameMap);
         int playerX = 0;
         int playerY = 0;
         
         int wumpusX = gen.nextInt(gameMap.length-1)+1;
         int wumpusY = gen.nextInt(gameMap[0].length-1)+1;
+        
+        wumpusX = 0;
+        wumpusY = 1;
         
         int pitX = gen.nextInt(gameMap.length-1)+1;
         int pitY = gen.nextInt(gameMap[0].length-1)+1;
@@ -128,18 +150,12 @@ public class WumpusGame{
                     }
                 }
                 System.out.println("You missed. Very bad.");
-                if(wumpusX == gameMap.length){
-                    wumpusX = 0;
-                }
-                if(wumpusX == -1){
-                    wumpusX = gameMap.length-1;
-                }
-                if(wumpusY == gameMap[0].length){
-                    wumpusY = 0;
-                }
-                if(wumpusY == -1){
-                    wumpusY = gameMap[0].length-1;
-                }
+                
+                tempArr = wrap(wumpusX,wumpusY,gameMap);
+                
+                wumpusX = tempArr[0];
+                wumpusY = tempArr[1];
+                
                 gameMap[wumpusX][wumpusY] = "#";
             }
             else{
@@ -157,19 +173,13 @@ public class WumpusGame{
                 if(in.equals("d")){
                     playerY += 1;
                 }
+                // player wrap
                 
-                if(playerX == gameMap.length){
-                    playerX = 0;
-                }
-                if(playerX == -1){
-                    playerX = gameMap.length-1;
-                }
-                if(playerY == gameMap[0].length){
-                    playerY = 0;
-                }
-                if(playerY == -1){
-                    playerY = gameMap[0].length-1;
-                }
+                tempArr = wrap(playerX,playerY,gameMap);
+                
+                playerX = tempArr[0];
+                playerY = tempArr[1];
+                
             }
                         
             gameMap[playerX][playerY] = "@";
