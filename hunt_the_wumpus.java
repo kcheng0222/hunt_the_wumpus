@@ -64,8 +64,8 @@ public class WumpusGame{
         int wumpusX = gen.nextInt(gameMap.length-1)+1;
         int wumpusY = gen.nextInt(gameMap[0].length-1)+1;
         
-        wumpusX = 0;
-        wumpusY = 1;
+        //wumpusX = 0;
+        //wumpusY = 1;
         
         int pitX = gen.nextInt(gameMap.length-1)+1;
         int pitY = gen.nextInt(gameMap[0].length-1)+1;
