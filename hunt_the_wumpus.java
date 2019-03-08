@@ -194,10 +194,12 @@ public class WumpusGame{
                 printMap(gameMap);
                 if(playerX == wumpusX && playerY == wumpusY){
                     System.out.println("The bats dropped you onto the wumpus. oOOOOF.");
+                    break;
                 }
                 
                 if(playerX == pitX && playerY == pitY){
                     System.out.println("The bats dropped you into the pit. Get dropped.");
+                    break;
                 }
                 
             }else if(playerX == wumpusX && playerY == wumpusY){
