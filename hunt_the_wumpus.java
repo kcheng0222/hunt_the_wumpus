@@ -235,5 +235,4 @@ public class WumpusGame{
         }
         sc.close();
     }
-    
 }
