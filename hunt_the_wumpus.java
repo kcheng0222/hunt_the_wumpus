@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 public class WumpusGame{
     
@@ -234,5 +233,7 @@ public class WumpusGame{
                 }
             }
         }
+        sc.close();
     }
+    
 }
