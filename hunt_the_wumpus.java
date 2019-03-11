@@ -182,8 +182,8 @@ public class WumpusGame{
                 else if(in.equals("d")){
                     playerY += 1;
                 }
-                // player wrap
                 
+                // player wrap
                 tempArr = wrap(playerX,playerY,gameMap);
                 
                 playerX = tempArr[0];
