@@ -121,7 +121,7 @@ public class WumpusGame{
                 if(shootDir.equals("w")){
                     if(playerX - 1 == wumpusX && playerY == wumpusY){
                         System.out.println("You shoot the wumpus! Good game.");
-                        System.out.println("Here's the map : ");
+                        System.out.println("Here's the map: ");
                         printMap(gameMap);
                         break;
                     }
