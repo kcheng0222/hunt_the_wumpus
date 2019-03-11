@@ -240,6 +240,7 @@ public class WumpusGame{
             if(playerX == batX && playerY == batY){
                 // puts player in a random location
                 System.out.println("You got carried away to a random location!");
+                displayMap[playerX][playerY] = "B";
                 playerX = gen.nextInt(gameMap.length-1)+1;
                 playerY = gen.nextInt(gameMap[0].length-1)+1;
                 gameMap[playerX][playerY] = "@"; displayMap[playerX][playerY] = "@";
