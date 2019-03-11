@@ -1,6 +1,6 @@
 # hunt_the_wumpus
 
-We're making a text-based map-based Hunt the Wumpus game in APCS! Started on 2/5/2019, finished 3/11/2019.
+We're making a text-based map-based Hunt the Wumpus game in APCS! Started on 3/5/2019, finished 3/11/2019.
 
 To do:
 
