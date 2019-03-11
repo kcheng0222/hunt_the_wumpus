@@ -57,13 +57,10 @@ public class WumpusGame{
         Random gen = new Random();
         String gameMap[][] = new String[9][9]; //change this if you want to change gameMap size
         int[] tempArr = new int[2];
+        int gCount = 4;
         gameMap = fillMap(gameMap);
         int playerX = 0;
         int playerY = 0;
-        
-
-        int gCount = 4;
-        
         
         int wumpusX = gen.nextInt(gameMap.length-1) + 1;
         int wumpusY = gen.nextInt(gameMap[0].length-1) + 1;
