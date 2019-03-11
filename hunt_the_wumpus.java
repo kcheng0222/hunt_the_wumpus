@@ -175,6 +175,11 @@ public class WumpusGame{
                 }
                 System.out.println("You missed. Very bad.");
                 System.out.println("You have " + gCount + " grenades left...");
+                if(gCount < 1){
+                    System.out.println("Sorry dummy you ran out of grenades");
+                    System.out.println("You loose");
+                    break;
+                }
                 
                 tempArr = wrap(wumpusX,wumpusY,gameMap);
                 
@@ -182,11 +187,6 @@ public class WumpusGame{
                 wumpusY = tempArr[1];
                 
                 gameMap[wumpusX][wumpusY] = "#";
-
-            }else if(gCount < 1){
-                System.out.println("Sorry dummy you ran out of grenades");
-                System.out.println("You loose");
-                break;
 
             }else{
                 
