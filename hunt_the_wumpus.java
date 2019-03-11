@@ -61,17 +61,26 @@ public class WumpusGame{
         int playerX = 0;
         int playerY = 0;
         
+        int pitX;
+        int pitY;
+        int batX;
+        int batY;
+        
         int wumpusX = gen.nextInt(gameMap.length-1) + 1;
         int wumpusY = gen.nextInt(gameMap[0].length-1) + 1;
+        pitX = gen.nextInt(gameMap.length-1) + 1;
+        pitY = gen.nextInt(gameMap[0].length-1) + 1;
+        batX = gen.nextInt(gameMap.length-1) + 1;
+        batY = gen.nextInt(gameMap[0].length-1) + 1;
+        while(wumpusX == pitX && wumpusY == pitY){
+            pitX = gen.nextInt(gameMap.length-1) + 1;
+            pitY = gen.nextInt(gameMap[0].length-1) + 1;
+        }
         
-        //wumpusX = 0;
-        //wumpusY = 1;
-        
-        int pitX = gen.nextInt(gameMap.length-1) + 1;
-        int pitY = gen.nextInt(gameMap[0].length-1) + 1;
-        
-        int batX = gen.nextInt(gameMap.length-1) + 1;
-        int batY = gen.nextInt(gameMap[0].length-1) + 1;
+        while(wumpusX == batX && wumpusY == batY){
+            batX = gen.nextInt(gameMap.length-1) + 1;
+            batY = gen.nextInt(gameMap[0].length-1) + 1;
+        }
         
         gameMap[playerX][playerY] = "@";
         gameMap[wumpusX][wumpusY] = "#";
