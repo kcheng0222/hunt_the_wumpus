@@ -61,6 +61,22 @@ public class WumpusGame{
         int playerX = 0;
         int playerY = 0;
         
+
+        int gCount = 4;
+        
+        
+        int wumpusX = gen.nextInt(gameMap.length-1) + 1;
+        int wumpusY = gen.nextInt(gameMap[0].length-1) + 1;
+        
+        //wumpusX = 0;
+        //wumpusY = 1;
+        
+        int pitX = gen.nextInt(gameMap.length-1) + 1;
+        int pitY = gen.nextInt(gameMap[0].length-1) + 1;
+        
+        int batX = gen.nextInt(gameMap.length-1) + 1;
+        int batY = gen.nextInt(gameMap[0].length-1) + 1;
+
         int pitX;
         int pitY;
         int batX;
@@ -95,11 +111,17 @@ public class WumpusGame{
             String in = sc.next().substring(0,1);
             
             //shoot time
-            if(in.equals("t")){
+
+            if( in.equals("t") && gCount > 0){
+
                 //shoot!
                 System.out.println("What direction would you like to throw? Enter wasd:");
                 String shootDir = sc.next().substring(0,1);
                 int r = 0;
+              
+                //you used a grenade
+                gCount --;
+
                 if(shootDir.equals("w")){
                     if(playerX - 1 == wumpusX && playerY == wumpusY){
                         System.out.println("You shoot the wumpus! Good game.");
@@ -166,9 +188,20 @@ public class WumpusGame{
                 wumpusY = tempArr[1];
                 
                 gameMap[wumpusX][wumpusY] = "#";
+
+            }else if(gCount < 1){
+                System.out.println("Sorry dummy you ran out of grenades");
+                System.out.println("You loose");
+                break;
+                
+                
+            }else{
+                System.out.println("Sorry dummy you ran out of grenades");
+
             }
             else{
                 
+
                 gameMap[playerX][playerY] = "_";
                 if(in.equals("w")){
                     playerX -= 1;
@@ -182,7 +215,7 @@ public class WumpusGame{
                 else if(in.equals("d")){
                     playerY += 1;
                 }
-                
+
                 // player wrap
                 tempArr = wrap(playerX,playerY,gameMap);
                 
