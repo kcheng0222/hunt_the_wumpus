@@ -76,14 +76,7 @@ public class WumpusGame{
         
         int batX = gen.nextInt(gameMap.length-1) + 1;
         int batY = gen.nextInt(gameMap[0].length-1) + 1;
-
-        int pitX;
-        int pitY;
-        int batX;
-        int batY;
         
-        int wumpusX = gen.nextInt(gameMap.length-1) + 1;
-        int wumpusY = gen.nextInt(gameMap[0].length-1) + 1;
         pitX = gen.nextInt(gameMap.length-1) + 1;
         pitY = gen.nextInt(gameMap[0].length-1) + 1;
         batX = gen.nextInt(gameMap.length-1) + 1;
@@ -181,6 +174,7 @@ public class WumpusGame{
                     }
                 }
                 System.out.println("You missed. Very bad.");
+                System.out.println("You have " + gCount + " grenades left...");
                 
                 tempArr = wrap(wumpusX,wumpusY,gameMap);
                 
@@ -193,15 +187,9 @@ public class WumpusGame{
                 System.out.println("Sorry dummy you ran out of grenades");
                 System.out.println("You loose");
                 break;
-                
-                
+
             }else{
-                System.out.println("Sorry dummy you ran out of grenades");
-
-            }
-            else{
                 
-
                 gameMap[playerX][playerY] = "_";
                 if(in.equals("w")){
                     playerX -= 1;
