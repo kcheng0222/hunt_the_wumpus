@@ -56,9 +56,14 @@ public class WumpusGame{
         Scanner sc = new Scanner(System.in);
         Random gen = new Random();
         String gameMap[][] = new String[9][9]; //change this if you want to change gameMap size
+        String displayMap[][] = new String[9][9];
+        
         int[] tempArr = new int[2];
         int gCount = 4;
+
         gameMap = fillMap(gameMap);
+        displayMap = fillMap(displayMap);
+        
         int playerX = 0;
         int playerY = 0;
         
@@ -78,6 +83,7 @@ public class WumpusGame{
         pitY = gen.nextInt(gameMap[0].length-1) + 1;
         batX = gen.nextInt(gameMap.length-1) + 1;
         batY = gen.nextInt(gameMap[0].length-1) + 1;
+        
         while(wumpusX == pitX && wumpusY == pitY){
             pitX = gen.nextInt(gameMap.length-1) + 1;
             pitY = gen.nextInt(gameMap[0].length-1) + 1;
@@ -88,10 +94,10 @@ public class WumpusGame{
             batY = gen.nextInt(gameMap[0].length-1) + 1;
         }
         
-        gameMap[playerX][playerY] = "@";
+        gameMap[playerX][playerY] = "@"; displayMap[playerX][playerY] = "@";
         gameMap[wumpusX][wumpusY] = "#";
         gameMap[batX][batY] = "B";
-        printMap(gameMap);
+        printMap(displayMap);
         
         System.out.println("Welcome to wumpus game! Use wasd to move, and 't' to shoot.");
         
@@ -115,6 +121,8 @@ public class WumpusGame{
                 if(shootDir.equals("w")){
                     if(playerX - 1 == wumpusX && playerY == wumpusY){
                         System.out.println("You shoot the wumpus! Good game.");
+                        System.out.println("Here's the map : ");
+                        printMap(gameMap);
                         break;
                     }
                     else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
@@ -131,6 +139,8 @@ public class WumpusGame{
                 else if(shootDir.equals("s")){
                     if(playerX + 1 == wumpusX && playerY == wumpusY){
                         System.out.println("You shoot the wumpus! Good game.");
+                        System.out.println("Here's the map : ");
+                        printMap(gameMap);
                         break;
                     }else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
@@ -145,6 +155,8 @@ public class WumpusGame{
                 else if(shootDir.equals("a")){
                     if(playerY - 1 == wumpusY && playerX == wumpusX){
                         System.out.println("You shoot the wumpus! Good game.");
+                        System.out.println("Here's the map : ");
+                        printMap(gameMap);
                         break;
                     }else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
@@ -159,6 +171,8 @@ public class WumpusGame{
                 else if(shootDir.equals("d")){
                     if(playerY + 1 == wumpusY && playerX == wumpusX){
                         System.out.println("You shoot the wumpus! Good game.");
+                        System.out.println("Here's the map : ");
+                        printMap(gameMap);
                         break;
                     }else if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                         gameMap[wumpusX][wumpusY] = "_";
@@ -175,6 +189,11 @@ public class WumpusGame{
                 if(gCount < 1){
                     System.out.println("Sorry dummy you ran out of grenades");
                     System.out.println("You loose");
+
+                    System.out.println("Here's the map, loser :");
+                    printMap(gameMap);
+
+
                     break;
                 }
                 
@@ -186,7 +205,11 @@ public class WumpusGame{
                 gameMap[wumpusX][wumpusY] = "#";
 
             }else{
+
+                displayMap[playerX][playerY] = "_";
+
                 
+
                 gameMap[playerX][playerY] = "_";
                 if(in.equals("w")){
                     playerX -= 1;
@@ -209,43 +232,53 @@ public class WumpusGame{
                 
             }
                         
-            gameMap[playerX][playerY] = "@";
+            gameMap[playerX][playerY] = "@"; displayMap[playerX][playerY] = "@";
             gameMap[batX][batY] = "B";
             gameMap[pitX][pitY] = "P";
-            //clearScreen();
+            //clearScreen()
             
             if(playerX == batX && playerY == batY){
                 // puts player in a random location
                 System.out.println("You got carried away to a random location!");
                 playerX = gen.nextInt(gameMap.length-1)+1;
                 playerY = gen.nextInt(gameMap[0].length-1)+1;
-                gameMap[playerX][playerY] = "@";
-                printMap(gameMap);
+                gameMap[playerX][playerY] = "@"; displayMap[playerX][playerY] = "@";
+                printMap(displayMap);
                 if(playerX == wumpusX && playerY == wumpusY){
                     System.out.println("The bats dropped you onto the wumpus. oOOOOF.");
+                    System.out.println("You loose");
+                    System.out.println("Here's the map, loser :");
+                    printMap(gameMap);
                     break;
                 }
                 
                 if(playerX == pitX && playerY == pitY){
                     System.out.println("The bats dropped you into the pit. Get dropped.");
+                    System.out.println("You loose");
+                    System.out.println("Here's the map, loser :");
+                    printMap(gameMap);
                     break;
                 }
                 
             }else if(playerX == wumpusX && playerY == wumpusY){
                 // player gets killed if they run into a wumpus(#)
                 gameMap[playerX][playerY] = "#";
-                printMap(gameMap);
+                printMap(displayMap);
                 System.out.println("You ran into wumpus ha :(\nyou died");
+                System.out.println("Here's the map, loser :");
+                printMap(gameMap);
                 break;
             }else if(playerX == pitX && playerY == pitY){
                 // player dies if falls into a pit(P)
                 gameMap[playerX][playerY] = "P";
-                printMap(gameMap);
+                printMap(displayMap);
                 System.out.println("You fell into a pit genius :(\nyou died");
+                System.out.println("Here's the map, loser :");
+                printMap(gameMap);
                 break;
             }else{
                 //tells player if they are next to a pit(breeze), wumpus(sniff), or bat(flap)
-                printMap(gameMap);
+                printMap(displayMap);
                 
                 if(nextTo(playerX, playerY, wumpusX, wumpusY)){
                     System.out.println("SNIFF");
