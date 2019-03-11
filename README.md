@@ -4,13 +4,10 @@ We're making a text-based map-based Hunt the Wumpus game in APCS!
 
 To do:
 
-
-- [ ] Finally, make everything invisible!
-    - [ ] Reveal everything when you lose from lack of grenades
-
-
 - [X] Implement `nextTo()`  throughout program
 - [X] Make a method that makes wumpus and player wrap
     - [X] Implement `wrap()`
 - [X] Make limited grenades (if you run out of grenades you lose)
 - [X] Should lose right after you miss
+- [X] Finally, make everything invisible!
+    - [X] Reveal everything when you lose from lack of grenades
