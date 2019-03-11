@@ -60,7 +60,7 @@ public class WumpusGame{
         
         int[] tempArr = new int[2];
         int gCount = 4;
-        
+
         gameMap = fillMap(gameMap);
         displayMap = fillMap(displayMap);
         
@@ -189,8 +189,11 @@ public class WumpusGame{
                 if(gCount < 1){
                     System.out.println("Sorry dummy you ran out of grenades");
                     System.out.println("You loose");
+
                     System.out.println("Here's the map, loser :");
                     printMap(gameMap);
+
+
                     break;
                 }
                 
@@ -202,7 +205,11 @@ public class WumpusGame{
                 gameMap[wumpusX][wumpusY] = "#";
 
             }else{
+
                 displayMap[playerX][playerY] = "_";
+
+                
+
                 gameMap[playerX][playerY] = "_";
                 if(in.equals("w")){
                     playerX -= 1;
