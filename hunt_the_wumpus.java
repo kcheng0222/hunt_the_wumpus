@@ -193,7 +193,6 @@ public class WumpusGame{
                     System.out.println("Here's the map, loser :");
                     printMap(gameMap);
 
-
                     break;
                 }
                 
@@ -262,7 +261,7 @@ public class WumpusGame{
                 }
                 
             }else if(playerX == wumpusX && playerY == wumpusY){
-                // player gets killed if they run into a wumpus(#)
+                // player gets killed if they run into a wumpus (#)
                 gameMap[playerX][playerY] = "#";
                 printMap(displayMap);
                 System.out.println("You ran into wumpus ha :(\nyou died");
@@ -270,7 +269,7 @@ public class WumpusGame{
                 printMap(gameMap);
                 break;
             }else if(playerX == pitX && playerY == pitY){
-                // player dies if falls into a pit(P)
+                // player dies if falls into a pit (P)
                 gameMap[playerX][playerY] = "P";
                 printMap(displayMap);
                 System.out.println("You fell into a pit genius :(\nyou died");
@@ -278,7 +277,7 @@ public class WumpusGame{
                 printMap(gameMap);
                 break;
             }else{
-                //tells player if they are next to a pit(breeze), wumpus(sniff), or bat(flap)
+                //tells player if they are next to a pit (breeze), wumpus (sniff), or bat (flap)
                 printMap(displayMap);
                 
                 if(nextTo(playerX, playerY, wumpusX, wumpusY)){
