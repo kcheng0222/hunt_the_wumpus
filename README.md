@@ -5,6 +5,7 @@ We're making a text-based map-based Hunt the Wumpus game in APCS! Started on 3/5
 To do:
 
 - [ ] Possible bug: Player can't smell wumpus on other side of board. Proceeds to wrap to other side, dies.
+- [ ] If you run into bat, you don't want to be dropped in same place (on top of bat)
 
 - [X] Implement `nextTo()`  throughout program
 - [X] Make a method that makes wumpus and player wrap
