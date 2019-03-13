@@ -21,9 +21,8 @@ public class WumpusGame{
         return arr;
     }
     
-    public void clearScreen() {  
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
+    public static void clearScreen() {  
+        System.out.print('\u000C'); 
     }  
     
     public static boolean nextTo(int a, int b, int c, int d){
@@ -234,7 +233,7 @@ public class WumpusGame{
             gameMap[playerX][playerY] = "@"; displayMap[playerX][playerY] = "@";
             gameMap[batX][batY] = "B";
             gameMap[pitX][pitY] = "P";
-            //clearScreen()
+            clearScreen();
             
             if(playerX == batX && playerY == batY){
                 // puts player in a random location
